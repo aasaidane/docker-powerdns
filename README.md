@@ -42,6 +42,7 @@ docker run \
     --name=pdns \
     -e "CUSTOM_DNS=8.8.8.8;8.8.4.4;[2001:4860:4860::8888];[2001:4860:4860::8844]" \
     -e "API_KEY=my-awesome-api-key" \
+    -e "SOA_NAME=my-custom-domain" \
     -e "CRONTAB_TIME=0 10 * * *" \
     -e "ENABLE_ADBLOCK=true" \
     -p 53:53 \

@@ -14,6 +14,11 @@ if [ -z "$API_KEY" ]; then
   API_KEY=`dbus-uuidgen`
 fi
 
+if [ -z "$SOA_NAME" ]; then
+  # use default
+  SOA_NAME="a.misconfigured.powerdns.server"
+fi
+
 # Path where DBs will be stored
 POWERDNS_DB_PATH="$DATA_DIR/powerdns"
 POWERDNSGUI_DB_PATH="$DATA_DIR/powerdnsgui"
@@ -24,6 +29,7 @@ mkdir -p $POWERDNSGUI_DB_PATH
 
 # Update PowerDNS Server config file
 sedeasy "api-key=API_KEY" "api-key=$API_KEY" /etc/pdns/pdns.conf
+sedeasy "default-soa-name=SOA_NAME" "default-soa-name=$SOA_NAME" /etc/pdns/pdns.conf
 sedeasy "gsqlite3-database=DATABASE_PATH" "gsqlite3-database=$POWERDNS_DB_PATH/db" /etc/pdns/pdns.conf
 
 # Add custom DNS entries
