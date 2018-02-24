@@ -1,5 +1,7 @@
 FROM alpine:edge
+
 MAINTAINER Julian Xhokaxhiu <info at julianxhokaxhiu dot com>
+MAINTAINER SAIDANE Ahmed Amine <https://github.com/aasaidane/>
 
 # Environment variables
 #######################
@@ -117,6 +119,7 @@ RUN ln -sf /proc/1/fd/1 /var/log/docker.log
 EXPOSE 53
 EXPOSE 53/udp
 EXPOSE 8080
+EXPOSE 8081
 
 # Change Shell
 ##############
