@@ -51,3 +51,23 @@ docker run \
     -v "/docker/pdns:/srv/data" \
     -t aasaidane/powerdns
 ```
+
+
+## DNSSEC option
+
+To manage DNSSEC, you must connect to the container.
+```
+docker exec -ti pdns bash
+```
+
+### Show domain secure zones
+
+```
+pdnsutil show-zone example.com
+```
+
+### Secure domain
+
+```
+pdnsutil secure-zone example.com
+```
